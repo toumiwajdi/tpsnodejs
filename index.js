@@ -1,13 +1,12 @@
 var express = require('express');
 var app = express();
-app.get('/',function (request,response) {
-    response.sendFile(__dirname +  "/index.html");
-});
 
-var quotes= {
-    'einstein' : 'Life is like riding a bicycle.',
-    'Wajdi' : 'Life like nothing',
-}
+
+var quotes= [
+    {author: "Wajdi", text: "Life like nothing"},
+    {author: "Einstein", text: "Life like everything"},
+
+];
 
 app.get('/quote/:name', function (request,response) {
     var quote=quotes[request.params.name];
@@ -15,5 +14,14 @@ app.get('/quote/:name', function (request,response) {
         name:request.params.name,
         quote:quote
     })
+});
+app.get('/quotes', function (request,response) {
+    response.render('all_quotes.ejs',{
+        quotes:quotes
+    })
+});
+app.get('/',function (request,response) {
+    response.redirect(301,'/quotes');
+
 })
 app.listen(8080);
