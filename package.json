@@ -1,0 +1,17 @@
+{
+  "name": "modules_manage",
+  "version": "1.8.9",
+  "description": "Gestion des modules",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.8",
+    "express": "^4.16.3",
+    "request": "^2.85.0",
+    "underscore": "^1.8.3"
+  }
+}
